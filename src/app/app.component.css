@@ -1,0 +1,13 @@
+.sidebar-bottom {
+    bottom: 20px;
+    position: fixed;
+    text-align: center;
+}
+
+.ui .menu .item :before {
+    width: 0px;
+}
+
+.launch .item .icon {
+    padding: 16px 20px; 
+}
