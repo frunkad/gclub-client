@@ -8,10 +8,15 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TestComponentComponent } from './test-component/test-component.component';
-import { APP_ROOT } from '@angular/core/src/di/scope';
+// import { APP_ROOT } from '@angular/core/src/di/scope';
 
+import { AuthService } from './auth.service';
 
-import { SuiModule,SuiSidebarModule } from 'ng2-semantic-ui'; // #RemoveSemantic
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { SuiModule, SuiSidebarModule } from 'ng2-semantic-ui'; // #RemoveSemantic
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +27,12 @@ import { SuiModule,SuiSidebarModule } from 'ng2-semantic-ui'; // #RemoveSemantic
     FormsModule,
     AppRoutingModule,
     SuiSidebarModule,
+    AngularFireModule.initializeApp(environment.firebase,'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
