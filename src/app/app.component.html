@@ -1,23 +1,24 @@
-<sui-sidebar-container>
-  <sui-sidebar class="vertical inverted" transition="scale down" direction="left" #sidebar>
+<!-- <div class="ui top attached demo menu">
+  <a class="item" (click)="sidebar.toggle()">
+    <i class="sidebar icon"></i> Menu
+  </a>
+  <div class="right item">
+    <img class="ui avatar image" src="https://semantic-ui.com/images/wireframe/white-image.png">
+
+    <button class="ui red basic button">Logout</button>
+  </div>
+</div>
+<sui-sidebar-container class="ui bottom attached segment">
+  <sui-sidebar class="inverted vertical" transition="scale down" direction="left" #sidebar>
     <a routerLink="/dashboard" class="item">Dashboard</a>
     <a routerLink="/myclubs" class="item">My Clubs</a>
     <a routerLink="/clubs" class="item">All Clubs</a>
     <a routerLink="/events" class="item">Events</a>
-
   </sui-sidebar>
   <sui-sidebar-sibling [isDimmedWhenVisible]="true">
-        <div class="ui top attached menu">
-          <a class="launch icon item" (click)="sidebar.open()">
-            <i class="sidebar icon"></i>
-          </a>
-          <div class="right item">
-              <img class="ui avatar image" src="https://semantic-ui.com/images/wireframe/white-image.png">
 
-            <button class="ui red basic button">Logout</button>
-          </div>
-        </div>
-        <router-outlet></router-outlet>
+    <div class="ui basic segment">
+      <router-outlet></router-outlet>
+    </div>
   </sui-sidebar-sibling>
-</sui-sidebar-container>
-
+</sui-sidebar-container> -->

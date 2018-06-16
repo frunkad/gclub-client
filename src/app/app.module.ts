@@ -16,11 +16,24 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { SuiModule, SuiSidebarModule } from 'ng2-semantic-ui'; // #RemoveSemantic
+import { SuiModule, SuiSidebarModule } from 'ng2-semantic-ui';
+import { LoginComponent } from './login/login.component';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component'; // #RemoveSemantic
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FireShieldGuard } from './fire-shield.guard';
+import { IndexLayoutComponent } from './layouts/index-layout/index-layout.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponentComponent
+    TestComponentComponent,
+    LoginComponent,
+    HomeLayoutComponent,
+    DashboardComponent,
+    LoginLayoutComponent,
+    IndexLayoutComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +45,7 @@ import { SuiModule, SuiSidebarModule } from 'ng2-semantic-ui'; // #RemoveSemanti
     AngularFireAuthModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [AuthService],
+  providers: [AuthService,FireShieldGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
