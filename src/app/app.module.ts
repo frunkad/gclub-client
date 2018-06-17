@@ -24,6 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FireShieldGuard } from './fire-shield.guard';
 import { IndexLayoutComponent } from './layouts/index-layout/index-layout.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { UserService } from './user.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
     FourOhFourComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebase,'angular-auth-firebase'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
@@ -46,7 +47,7 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
     SuiSidebarModule,
 
   ],
-  providers: [AuthService,FireShieldGuard],
+  providers: [AuthService,FireShieldGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

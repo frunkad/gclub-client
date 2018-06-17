@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fireauth: AuthService,private router: Router) {
+  constructor(private fireauth: AuthService,private router: Router,private curUser: UserService) {
   }
 
   ngOnInit() {
-    console.log(this.fireauth.isLoggedIn())
+    // console.log(this.fireauth.isLoggedIn())
     
   }
 
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
   }
 
   lout() {
-    console.log(this.fireauth.isLoggedIn());
+    // console.log(this.fireauth.isLoggedIn());
+    console.log(this.curUser.getCurrentUser())
   }
 
   
