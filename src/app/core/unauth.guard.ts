@@ -17,11 +17,11 @@ export class UnauthGuard implements CanActivate {
 
       return this.auth.user.pipe(
            take(1),
-           map(user => !!user),
-           tap(loggedIn => {
-             if (loggedIn) {
+           map(user => !user),
+           tap(loggedOut => {
+             if (!loggedOut) {
                console.log('access denied')
-               this.router.navigate(['/dashboard']);
+              this.router.navigate(['/dashboard']);
              }
          })
     )

@@ -25,6 +25,7 @@ import { CoreModule } from './core/core.module';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { AuthGuard } from './core/auth.guard';
 import { UnauthGuard } from './core/unauth.guard';
+import { IndexPageComponent } from './index-page/index-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UnauthGuard } from './core/unauth.guard';
     DashboardComponent,
     LoginLayoutComponent,
     IndexLayoutComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    IndexPageComponent
   ],
   imports: [
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),

@@ -10,6 +10,12 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService,private router:Router) { }
+
+  doLogin() { 
+    this.auth.googleLogin().then((suc)=>{
+      this.router.navigateByUrl("dashboard");
+    })
+  }
 
 }

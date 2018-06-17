@@ -8,7 +8,10 @@
       <button routerLink="/" class="ui secondary basic button">
         Home Page
       </button>
-      <button routerLink="/login" class="ui positive basic button">
+      <button *ngIf="auth.user" routerLink="/dashboard" class="ui positive basic button">
+        Dashboard
+      </button>
+      <button *ngIf="!auth.user" routerLink="/login" class="ui positive basic button">
         Login
       </button>
     </div>

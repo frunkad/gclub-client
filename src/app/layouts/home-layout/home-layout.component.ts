@@ -8,7 +8,7 @@ import { AuthService } from '../../core/auth.service';
 })
 export class HomeLayoutComponent implements OnInit {
 
-  constructor(private fireauth: AuthService) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
