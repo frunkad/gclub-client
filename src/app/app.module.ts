@@ -7,10 +7,8 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { TestComponentComponent } from './test-component/test-component.component';
-// import { APP_ROOT } from '@angular/core/src/di/scope';
+// import { TestComponentComponent } from './test-component/test-component.component';
 
-import { AuthService } from './auth.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -21,13 +19,16 @@ import { LoginComponent } from './login/login.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component'; // #RemoveSemantic
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FireShieldGuard } from './fire-shield.guard';
 import { IndexLayoutComponent } from './layouts/index-layout/index-layout.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { CoreModule } from './core/core.module';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AuthGuard } from './core/auth.guard';
+import { UnauthGuard } from './core/unauth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponentComponent,
     LoginComponent,
     HomeLayoutComponent,
     DashboardComponent,
@@ -36,16 +37,15 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
     FourOhFourComponent
   ],
   imports: [
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     SuiSidebarModule,
-    AngularFireModule.initializeApp(environment.firebase,'angular-auth-firebase'),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    CoreModule
+
   ],
-  providers: [AuthService,FireShieldGuard],
+  providers: [AuthGuard,UnauthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

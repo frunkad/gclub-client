@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-home-layout',
@@ -14,7 +14,7 @@ export class HomeLayoutComponent implements OnInit {
   }
 
   logout() {
-    this.fireauth.logout();
+    // this.fireauth.logout();
   }
 
 }

@@ -1,20 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor(private fireauth: AuthService) { }
 
-  ngOnInit() {
-  }
-
-  signIn(){
-    this.fireauth.signInWithGoogle();
-  }
+  constructor(public auth: AuthService) { }
 
 }
