@@ -18,8 +18,8 @@ const routes: Routes = [
   {
     path: 'login', component: LoginLayoutComponent, data: {pageLogin: "yes"}, pathMatch:"full", canActivate:[FireShieldGuard]
   },
-  { path: '', component: HomeLayoutComponent, canActivate:[FireShieldGuard], pathMatch:"full", children:[
-    { path: 'dashboard', component: DashboardComponent, pathMatch: "full"},
+  { path: '', component: HomeLayoutComponent,  children:[
+    { path: 'dashboard', component: DashboardComponent, pathMatch: "full", canActivate:[FireShieldGuard],},
     { path: '**', component: FourOhFourComponent, pathMatch: "full"}
   ]},
   {

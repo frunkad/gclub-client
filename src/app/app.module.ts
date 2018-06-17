@@ -36,14 +36,15 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
     FourOhFourComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase,'angular-auth-firebase'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     SuiSidebarModule,
-    AngularFireModule.initializeApp(environment.firebase,'angular-auth-firebase'),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+
   ],
   providers: [AuthService,FireShieldGuard],
   bootstrap: [AppComponent]
