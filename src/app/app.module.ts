@@ -26,6 +26,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { AuthGuard } from './core/auth.guard';
 import { UnauthGuard } from './core/unauth.guard';
 import { IndexPageComponent } from './index-page/index-page.component';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
     IndexPageComponent
   ],
   imports: [
+    LoadingBarRouterModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     BrowserModule,
     FormsModule,
